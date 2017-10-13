@@ -1,5 +1,7 @@
 import React from "react"
 
+import 'typeface-roboto'
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
@@ -55,6 +57,17 @@ const ContentTask = class extends React.Component{
     };
 
     renderListTask = () => {
+        if (this.state.tasks.length == 0){
+            return (
+                <Row center="xs">
+                    <Col xs={12} lg={6}>            
+                        <p style={{fontFamily: "Roboto, sans-serif", fontSize:"20px"}}>
+                            Nenhuma tarefa cadastrada
+                        </p>   
+                    </Col>
+                </Row>
+            );
+        }
         return (
             <Row around="xs">
                 <Col xs={12} lg={6}>            
